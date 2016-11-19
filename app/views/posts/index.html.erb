@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Posts</h1>
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Body</th>
+  </tr>
+  <% @posts.each do |post| %>
+      <tr>
+        <td><%= post.title %></td>
+        <td><%= post.body %></td>
+      <tr>
+  <% end %>
+
+  <tbody>
+    <% @posts.each do |post| %>
+      <tr>
+        <td><%= link_to 'Show', post %></td>
+        <td><%= link_to 'Edit', edit_post_path(post) %></td>
+        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<% if %>
+  <% user_signed_in?%>
+    <%= link_to 'New Post', new_post_path %>
+    <br>
+    <%= link_to 'Login', new_user_session_path %>
+    <br>
+    <%= link_to 'Sign Up', new_user_registration_path %>
+    <br>
+    <%= link_to :Logout, destroy_user_session_path, :method => :delete  %>
+<% else %>
+<%= link_to 'Login', new_user_session_path %>
+<br>
+<%= link_to 'Sign Up', new_user_registration_path %>
+<br>
+<%end%>
