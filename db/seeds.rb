@@ -1,3 +1,18 @@
+require 'faker'
+
+namespace :db do
+
+  desc "populates the database with users"
+  task populate: :environment do
+    100.times do
+      User.create!
+      email: Faker::Internet.email,
+      encrypted_password: Faker::Internet.password(8)
+      )
+    end
+  end
+end
+
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
