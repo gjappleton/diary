@@ -7,7 +7,7 @@ namespace :db do
       Post.create!(
       title: Faker::Book.title,
       body: Faker::Lorem.paragraph,
-      user_id: "rand(1...103)"
+      user_id: rand(1...103)
       )
     end
   end
