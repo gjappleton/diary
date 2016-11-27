@@ -4,7 +4,7 @@ namespace :db do
   task populate: :environment do
     require 'faker'
     100.times do
-      User.create!
+      User.create!(
       email: Faker::Internet.email,
       encrypted_password: Faker::Internet.password(8)
       )
