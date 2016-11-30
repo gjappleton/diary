@@ -1,18 +1,25 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!
 
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    @user = current_user
+    @posts = @user.posts
+  end
+
+  def friend_index
+    @friend_posts = current_user.rand_user.posts
   end
 
   # GET /posts/1
   # GET /posts/1.json
   def show
-    @user = current_user
-    @posts = @user.posts
+    #if current_user.posts .belongs_to_you OR belongs_to_friend
+      #ok
+    #else
+      #display Not okay
   end
 
   # GET /posts/new
