@@ -7,6 +7,7 @@ class PostsController < ApplicationController
   def index
     @user = current_user
     @posts = @user.posts
+    @users = User.all
   end
 
   def friend_index
