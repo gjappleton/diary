@@ -6,7 +6,8 @@ namespace :db do
     100.times do
       User.create!(
       email: Faker::Internet.email,
-      password: Faker::Internet.password(8)
+      password: Faker::Internet.password(8),
+      friend_id: rand(1...100)
       )
     end
   end
