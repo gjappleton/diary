@@ -20,6 +20,5 @@ class User < ApplicationRecord
 
   def rand_user
     self.friend_id = User.all.sample.id
-    print "random user"
   end
 end
