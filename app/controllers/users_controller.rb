@@ -8,9 +8,11 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
-  def create
+  def createNOTHING MATTERS IN HERE!!!!
     @user = User.new(user_params)
     if @user.save
+      @friend_user = User.all.sample
+      @user.friend_id = @friend_user.id
       log_in @user
       flash[:success] = "Welcome to the Sample App!"
       redirect_to @user
@@ -26,7 +28,7 @@ class UsersController < ApplicationController
   private
 
     def user_params
-      params.require(:user).permit(:name, :email, :password,
-                                   :password_confirmation)
+      params.require(:user).permit(:email, :password,
+                                   :password_confirmation, :friend_id)
     end
 end

@@ -6,6 +6,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+  before_update :rand_user
 
   def count_posts
     posts.count
@@ -16,6 +17,7 @@ class User < ApplicationRecord
   end
 
   def rand_user
-    User.all.sample
+    self.friend_id = User.all.sample.id
+    print "random user"
   end
 end
