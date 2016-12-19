@@ -7,11 +7,8 @@ class PostsController < ApplicationController
   def index
     @user = current_user
     @posts = @user.posts
-    @users = User.all
-  end
-
-  def friend_index
-    @friend_posts = current_user.rand_user.posts
+    @friend = User.where(id: current_user.friend_id)
+    @friend_posts = Post.where(user_id: current_user.friend_id)
   end
 
   # GET /posts/1

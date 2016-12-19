@@ -10,6 +10,11 @@ class User < ApplicationRecord
   before_update :rand_user
   #after_create :assign_friend
 
+  def friend_count_posts
+    posts.where(user_id: self.friend_id).count
+  end
+
+
   def count_posts
     posts.count
   end

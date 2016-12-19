@@ -1,18 +1,17 @@
-You have <%= @user.count_posts %> posts!
+You have <%= @user.count_posts %> posts, and your friend has <%= @user.friend_count_posts%> posts!
+
+<% @friend_posts.each do |post| %>
+  <h3>
+    <%= link_to post.title, post %> <br>
+  </h3>
+      <small class="author"> Submitted <%= time_ago_in_words(post.created_at) %> ago</small>
+<%end%>
 
 <% @posts.each do |post|%>
   <h3>
     <%= link_to post.title, post %> <br>
   </h3>
-      <small class="author"> Submitted <%= time_ago_in_words(post.created_at) %> </small>
-<%end%>
-<ul>
-  <% for user in @user.friends%>
-  <li><%=h user.email%></li>
-  <%end%>
-</ul>
-<% @users.each do |user|%>
-  <li><%= link_to user.email%></li>
-  <%= link_to "Add Friend", friendships_path(:friend_id => user), :method => :post%>
+      <small class="author"> Submitted <%= time_ago_in_words(post.created_at) %> ago</small>
+
 <%end%>
 <%# by <%= post.user.email goes after 'submitted'%>
