@@ -1,16 +1,24 @@
-You have <%= @user.count_posts %> posts, and your friend has <%= Post.where(user_id: current_user.friend_id).count%> posts!
+<h3> Your Friend's Posts </h3>
+
+Your friend has <%= Post.where(user_id: current_user.friend_id).count%> posts!
 
 <% @friend_posts.each do |post| %>
-  <h3>
+  <h4>
     <%= link_to post.title, post %> <br>
-  </h3>
+  </h4>
       <small class="author"> Submitted <%= time_ago_in_words(post.created_at) %> ago</small>
 <%end%>
 
+<hr>
+
+<h3> My Posts </h3>
+
+You have <%= @user.count_posts %> posts!
+
 <% @posts.each do |post|%>
-  <h3>
+  <h4>
     <%= link_to post.title, post %> <br>
-  </h3>
+  </h4>
       <small class="author"> Submitted <%= time_ago_in_words(post.created_at) %> ago</small>
 
 <%end%>
