@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :friendships
-  root 'posts#index'
+  root 'welcome#home'
 
   resources :posts do
     resources :comments
