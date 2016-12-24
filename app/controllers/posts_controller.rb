@@ -7,7 +7,7 @@ class PostsController < ApplicationController
   def index
     @user = current_user
     @posts = @user.posts
-    @friend = User.where(id: current_user.friend_id)
+    #@friend = User.where(id: current_user.friend_id)
     @friend_posts = Post.where(user_id: current_user.friend_id)
   end
 

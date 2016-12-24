@@ -5,13 +5,7 @@ class UsersController < ApplicationController
   end
 
   def new
-    @user = User.new
-  end
-
-  def createNOTHING MATTERS IN HERE!!!!
-    @user = User.new(user_params)
-    if @user.save
-      @friend_user = User.all.sample
+  zfsadfasdfasdfdmple
       @user.friend_id = @friend_user.id
       log_in @user
       flash[:success] = "Welcome to the Sample App!"
