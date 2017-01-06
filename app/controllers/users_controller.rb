@@ -5,7 +5,6 @@ class UsersController < ApplicationController
   end
 
   def new
-  zfsadfasdfasdfdmple
       @user.friend_id = @friend_user.id
       log_in @user
       flash[:success] = "Welcome to the Sample App!"
