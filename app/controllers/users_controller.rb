@@ -5,10 +5,12 @@ class UsersController < ApplicationController
   end
 
   def new
+    if
       @user.friend_id = @friend_user.id
       log_in @user
       flash[:success] = "Welcome to the Sample App!"
       redirect_to @user
+    end
     else
       render 'new'
     end
@@ -24,5 +26,4 @@ class UsersController < ApplicationController
     params.require(:user).permit(:email, :password,
                                  :password_confirmation, :friend_id)
   end
-end
 end
